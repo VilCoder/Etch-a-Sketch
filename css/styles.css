@@ -1,0 +1,64 @@
+/* ======================================== Generals ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+.item-container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+body {
+    flex-direction: column;
+    gap: 10px;
+    font: 16px/1.5 sans-serif;
+    padding: 10px;
+}
+
+button {
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: inherit;
+
+}
+
+
+/* ======================================== Grid Container ======================================== */
+.container {
+    width: 80%;
+    min-height: 100vh;
+    border-color: #EE5E5F #BA0C0E #D40E10 #F8898A;
+    border-style: solid;
+    border-width: 15px;
+    border-radius: 3px;
+    
+    .item-container {
+        width: 100%;
+        background-color: #EC0E0E;
+        justify-content: center;
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 70%;
+            min-height: 70vh;
+            background-color: #FFF;
+            border-color: #BB0B12 #EC2D2F #F79A97 #BD0912;
+            border-style: solid;
+            border-width: 15px;
+
+            .grid-item {
+                flex: auto;
+                border: 1px solid #000;
+                /*border-radius: 50%;*/
+            }
+        }
+    }
+}

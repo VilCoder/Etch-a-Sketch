@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch A Sketch</title>
     <link rel="stylesheet" href="./css/styles.css">
     <script defer src="./js/script.js"></script>
 </head>
+
 <body>
     <div class="container">
-        <div class="item-container">
-            <div class="grid-container">
+        <div class="item">
+            <div class="buttons">
+                <button type="button" class="open-modal" data-open="open-modal">Configure Grid</button>
+            </div>
+        
+            <div class="modal" id="open-modal">
+                <div class="modal-dialog">
+                    <header class="modal-header">
+                        <button type="button" class="modal-close" aria-label="modal-close" data-close>X</button>
+                    </header>
+                    <section class="modal-content">
+                        <p>Enter the grid number:</p>
+                        <input type="number" min="1" max="100" class="value">
+                        <input type="submit" value="Send" class="btn-send">
+                    </section>
+                </div>
+            </div>
+            <div class="grid">
                 
             </div>
         </div>
-    </div>    
+    </div>
 </body>
+
 </html>

@@ -1,4 +1,12 @@
 /* ======================================== Generals ======================================== */
+:root {
+    --lightgray: #EFEFEF;
+    --blue: steelblue;
+    --white: #FFF;
+    --black: rgb(0 0 0 / 0.8);
+    --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,21 +14,20 @@
 }
 
 body,
-.item-container {
+.item {
     display: flex;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
+    flex-direction: column;
 }
 
 body {
-    flex-direction: column;
-    gap: 10px;
     font: 16px/1.5 sans-serif;
     padding: 10px;
 }
 
 button {
-    margin-top: 10px;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -29,8 +36,7 @@ button {
 
 }
 
-
-/* ======================================== Grid Container ======================================== */
+/* ======================================== Container ======================================== */
 .container {
     width: 80%;
     min-height: 100vh;
@@ -38,13 +44,102 @@ button {
     border-style: solid;
     border-width: 15px;
     border-radius: 3px;
-    
-    .item-container {
-        width: 100%;
-        background-color: #EC0E0E;
-        justify-content: center;
 
-        .grid-container {
+    /* ======================================== Item ======================================== */
+    .item {
+        width: 100%;
+        position: relative;
+        background-color: #EC0E0E;
+
+        /* ======================================== Button ======================================== */
+        .buttons {
+            position: absolute;
+            top: 4%;
+            left: 8%;
+
+            .open-modal {
+                font-weight: bold;
+                background-color: #DDD;
+                padding: 0.75rem 1rem;
+                border-radius: 5px;
+                transition: 250ms ease;
+
+                &:hover {
+                    background-color: #000;
+                    color: #DDD;
+                }
+            }
+        }
+
+        /* ======================================== Modal ======================================== */
+        .modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            background-color: var(--black);
+            cursor: pointer;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.35s ease-in;
+
+            .modal-dialog {
+                width: 350px;
+                border-radius: 5px;
+                background-color: var(--white);
+                cursor: default;
+                
+                .modal-header {
+                    position: relative; 
+                    height: 20px;
+
+                    .modal-close {
+                        width: 30px;
+                        font-size: 1.3rem;
+                        position: absolute;
+                        left: 92%;
+                        top: 3%;
+
+                        &:hover {
+                            border: 1px solid transparent;
+                        }
+
+                    }
+                }
+
+                .modal-content {
+                    text-align: center;
+
+                    p {
+                        font-size: 1rem;
+                    }
+
+                    .value {
+                        outline-color: #0F0;
+                        margin-left: 10px;
+
+                        &:invalid {
+                            border: 3px solid #F00;
+                            outline-color: #F00;
+                        }
+                    }
+                }
+            }
+
+            .modal-dialog>* {
+                padding: 0.7rem;
+            }
+        }
+
+        .modal.is-visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* ======================================== Grid ======================================== */
+        .grid {
             display: flex;
             flex-wrap: wrap;
             width: 70%;
@@ -56,8 +151,7 @@ button {
 
             .grid-item {
                 flex: auto;
-                border: 1px solid #000;
-                /*border-radius: 50%;*/
+                border-radius: 10px;
             }
         }
     }

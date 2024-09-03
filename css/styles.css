@@ -27,13 +27,21 @@ body {
     padding: 10px;
 }
 
-button {
+button:not(.modal-close) {
     cursor: pointer;
-    background-color: transparent;
+    font-weight: bold;
+    background-color: #DDD;
+    padding: 0.30rem 1rem;
+    border-radius: 5px;
     border: none;
     outline: none;
     font-size: inherit;
+    margin-left: 10px;
+    transition: 0.2s ease-in-out;
 
+    &:hover {
+        scale: 0.9;
+    }
 }
 
 /* ======================================== Container ======================================== */
@@ -55,20 +63,7 @@ button {
         .buttons {
             position: absolute;
             top: 4%;
-            left: 8%;
-
-            .open-modal {
-                font-weight: bold;
-                background-color: #DDD;
-                padding: 0.75rem 1rem;
-                border-radius: 5px;
-                transition: 250ms ease;
-
-                &:hover {
-                    background-color: #000;
-                    color: #DDD;
-                }
-            }
+            left: 2%;
         }
 
         /* ======================================== Modal ======================================== */
@@ -101,6 +96,9 @@ button {
                         position: absolute;
                         left: 92%;
                         top: 3%;
+                        border: none;
+                        background-color: transparent;
+                        
 
                         &:hover {
                             border: 1px solid transparent;

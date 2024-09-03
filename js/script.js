@@ -14,17 +14,20 @@ function setGrid(itemCount) {
             gridContainer.appendChild(gridItem);
         }
     }
-    
-    const item = document.querySelectorAll("div.grid-item");
-    item.forEach(element => {
-        element.addEventListener("mouseover", () => {
-            element.style.background = "#A9A8AB";
-        });
-    });
+
+    changeBackground();
 }
 
+function changeBackground() {
+    document.querySelector(".grid").addEventListener("mouseover", e => {
+        if (e.target.classList.contains("grid-item")) {
+            e.target.style.background = "#A9A8AB";
+        }
+    });   
+}
 
 const gridContainer = document.querySelector(".grid");
+
 setGrid(16);
 
 const openModal = document.querySelectorAll("[data-open]");
@@ -64,4 +67,23 @@ btnSend.addEventListener("click", () => {
     input.value = "";
     gridContainer.textContent = "";
     setGrid(itemCount);
+});
+
+const clearGrid = document.querySelector(".clear-grid");
+clearGrid.addEventListener("click", () => {
+    document.querySelectorAll(".grid-item").forEach(element => {
+        element.style.background = "";
+    });
+});
+
+const drawCell = document.querySelector(".draw-cell");
+drawCell.addEventListener("click", changeBackground);
+
+const clearCell = document.querySelector(".clear-cell");
+clearCell.addEventListener("click", () => {
+    document.querySelector(".grid").addEventListener("mouseover", e => {
+        if (e.target.classList.contains("grid-item")) {
+            e.target.style.background = "";
+        }
+    });
 });

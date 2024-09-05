@@ -5,7 +5,6 @@ function setGrid(itemCount) {
     }
 
     const gridItemWidth = Math.floor(gridContainer.clientWidth / itemCount);
-
     for (let i = 1; i <= itemCount; i++) {
         for (let j = 1; j <= itemCount; j++) {
             const gridItem = document.createElement("div");
@@ -15,15 +14,18 @@ function setGrid(itemCount) {
         }
     }
 
-    changeBackground();
+    changeBackground("black");
 }
 
-function changeBackground() {
+function changeBackground(background) {    
+    let alpha = 0.0;
     document.querySelector(".grid").addEventListener("mouseover", e => {
         if (e.target.classList.contains("grid-item")) {
-            e.target.style.background = "#A9A8AB";
+            if (alpha < 1.0) alpha += 0.1
+            e.target.style.backgroundColor = background;
+
         }
-    });   
+    });
 }
 
 const gridContainer = document.querySelector(".grid");
@@ -69,6 +71,7 @@ btnSend.addEventListener("click", () => {
     setGrid(itemCount);
 });
 
+
 const clearGrid = document.querySelector(".clear-grid");
 clearGrid.addEventListener("click", () => {
     document.querySelectorAll(".grid-item").forEach(element => {
@@ -76,8 +79,6 @@ clearGrid.addEventListener("click", () => {
     });
 });
 
-const drawCell = document.querySelector(".draw-cell");
-drawCell.addEventListener("click", changeBackground);
 
 const clearCell = document.querySelector(".clear-cell");
 clearCell.addEventListener("click", () => {
@@ -85,5 +86,12 @@ clearCell.addEventListener("click", () => {
         if (e.target.classList.contains("grid-item")) {
             e.target.style.background = "";
         }
+    });
+});
+
+document.querySelectorAll(".color").forEach(element => {
+    element.addEventListener("click", e => {
+        const color = e.target.getAttribute("id");
+        changeBackground(color)
     });
 });

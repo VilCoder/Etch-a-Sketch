@@ -6,34 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="./js/script.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <div class="item">
-            <div class="buttons">
-                <button type="button" class="open-modal" data-open="open-modal">Configure grid</button>
-                <button type="button" class="clear-grid">Clear Grid</button>
-                <button type="button" class="draw-cell">Draw Cell</button>
-                <button type="button" class="clear-cell">Clear Cell</button>
+        <div class="buttons">
+            <button type="button" class="open-modal" data-open="open-modal"><i class="fa-solid fa-gear"></i></button>
+            <button type="button" class="clear-grid"><i class="fa-solid fa-broom"></i></button>
+            <button type="button" class="clear-cell"><i class="fa-solid fa-eraser"></i></button>
+        </div>
+
+        <div class="modal" id="open-modal">
+            <div class="modal-dialog">
+                <header class="modal-header">
+                    <button type="button" class="modal-close" aria-label="modal-close" data-close>X</button>
+                </header>
+                <section class="modal-content">
+                    <p>Enter the grid number:</p>
+                    <input type="number" min="1" max="100" class="value">
+                    <input type="submit" value="Send" class="btn-send">
+                </section>
             </div>
-        
-            <div class="modal" id="open-modal">
-                <div class="modal-dialog">
-                    <header class="modal-header">
-                        <button type="button" class="modal-close" aria-label="modal-close" data-close>X</button>
-                    </header>
-                    <section class="modal-content">
-                        <p>Enter de grid number:</p>
-                        <input type="number" min="1" max="100" class="value">
-                        <input type="submit" value="Send" class="btn-send">
-                    </section>
-                </div>
-            </div>
-            <div class="grid">
-                
-            </div>
+        </div>
+
+        <div class="grid">
+
+        </div>
+
+        <div class="colors">
+            <div class="color" id="black"></div>
+            <div class="color" id="red"></div>
+            <div class="color" id="blue"></div>
+            <div class="color" id="yellow"></div>
+            <div class="color" id="green"></div>
+            <div class="color" id="cyan"></div>
+            <div class="color" id="LightCoral"></div>
+            <div class="color" id="Orange"></div>
+            <div class="color" id="DeepPink"></div>
+            <div class="color" id="gold"></div>
+            <div class="color" id="indigo"></div>
         </div>
     </div>
 </body>

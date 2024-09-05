@@ -4,12 +4,13 @@ function setGrid(itemCount) {
         itemCount = 16;
     }
 
-    const gridItemWidth = Math.floor(gridContainer.clientWidth / itemCount);
+    const gridItemWidth = 100 / itemCount;
+
     for (let i = 1; i <= itemCount; i++) {
         for (let j = 1; j <= itemCount; j++) {
             const gridItem = document.createElement("div");
             gridItem.classList.add("grid-item");
-            gridItem.style.width = gridItemWidth + "px";
+            gridItem.style.flexBasis = `${gridItemWidth}%`;
             gridContainer.appendChild(gridItem);
         }
     }
@@ -18,13 +19,15 @@ function setGrid(itemCount) {
 }
 
 function changeBackground(background) {    
-    let alpha = 0.0;
+    let opacity = 0.1;
     document.querySelector(".grid").addEventListener("mouseover", e => {
         if (e.target.classList.contains("grid-item")) {
-            if (alpha < 1.0) alpha += 0.1
+            e.target.style.opacity = opacity;
             e.target.style.backgroundColor = background;
 
         }
+
+        if (opacity < 1.0) opacity += 0.1;
     });
 }
 
@@ -62,15 +65,12 @@ document.addEventListener("keyup", e => {
     }
 });
 
-const btnSend = document.querySelector(".btn-send");
-const input = document.querySelector(".value");
-btnSend.addEventListener("click", () => {
-    const itemCount = Number(input.value);
-    input.value = "";
+document.querySelector(".btn-send").addEventListener("click", () => {
+    const input = document.querySelector(".value");
     gridContainer.textContent = "";
-    setGrid(itemCount);
-});
-
+    setGrid(Number(input.value));
+    input.value = "";
+})
 
 const clearGrid = document.querySelector(".clear-grid");
 clearGrid.addEventListener("click", () => {

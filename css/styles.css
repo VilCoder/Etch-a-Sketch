@@ -24,7 +24,7 @@ body,
 body {
     align-items: center;
     justify-content: center;
-    font: 20px/1.5 sans-serif;
+    font: 16px/1.5 sans-serif;
     background-color: #1abc9c;
 }
 
@@ -100,6 +100,10 @@ button:not(.modal-close) {
                 .value {
                     outline-color: #0F0;
                     margin-left: 10px;
+                    
+                    &:focus {
+                        color: #000;
+                    }
 
                     &:invalid {
                         border: 3px solid #F00;
@@ -124,13 +128,14 @@ button:not(.modal-close) {
         display: flex;
         flex-wrap: wrap;
         width: 90%;
-        height: 80vh;
+        min-height: 80vh;
         background-color: #FFF;
         align-self: center;
         border: 1px solid #000;
+        padding: 1px;
         
         .grid-item {
-            flex: 1 1 auto;
+            flex: 1 0 auto;
         }
     }
 
@@ -140,8 +145,8 @@ button:not(.modal-close) {
         gap: 10px;
 
         .color {
-            width: 40px;
-            height: 40px;
+            width: 4%;
+            height: 5vh;
             border: 1px solid #000;
             border-radius: 5px;
             transition: 0.2s ease-in-out;

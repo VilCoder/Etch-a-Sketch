@@ -4,20 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script defer src="./js/script.js"></script>
+    
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.2-web/css/all.min.css">
+    <link rel="stylesheet" href="./assets/fonts/poppins/poppins.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    
+    <script defer src="./assets/js/script.js"></script>
+
+    <title>Etch A Sketch</title>
 </head>
 
 <body>
     <div class="container">
         <div class="buttons">
-            <button type="button" class="open-modal" data-open="open-modal"><i class="fa-solid fa-gear"></i></button>
-            <button type="button" class="clear-grid"><i class="fa-solid fa-broom"></i></button>
-            <button type="button" class="clear-cell"><i class="fa-solid fa-eraser"></i></button>
+            <ul>
+                <li>
+                    <button type="button" class="open-modal" data-open="open-modal">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="overlay">
+                            Click to set the number of grid cells
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="clear-grid">
+                        <i class="fa-solid fa-broom"></i>
+                        <span class="overlay">
+                            Click to clear the grid
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="clear-cell">
+                        <i class="fa-solid fa-eraser"></i>
+                        <span class="overlay">
+                            Click to clear cells
+                        </span>
+                    </button>
+                </li>
+            </ul>
         </div>
 
         <div class="modal" id="open-modal">
